@@ -1,0 +1,16 @@
+
+@font-face {
+    font-family: 'bosca';
+    src: url('../CreativeMarket\ -\ Bosca\ 4964373/');
+}
+*
+{
+    font-family: 'bosca';
+}
+h1
+{
+    font-family: 'bosca';
+}
+p{
+    font-family: 'bosca';
+}
