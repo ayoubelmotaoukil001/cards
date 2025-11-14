@@ -3,67 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Collections</title>
     <link rel="stylesheet" href="src/output.css">
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-    <header>
-        <h1 class="text-center m-[2rem] text-[3rem] font-bold "> C O L L E C T I O N S </h1>
-    </header>
+    
+   <header> <h1 id="conntt" class="text-center m-[2rem] text-[3rem] font-bold">C O L L E C T I O N S</h1> </header>
 
     <main>
-
         <section class="flex justify-center">
-
-
-            <div class=" text-white flex flex-row gap-[4rem] w-1/2  justify-center">
             
-                <div class="bg-black w-[20rem] rounded-[2.5rem]" >
+            <div id="cards-container" class="text-white flex flex-row gap-4 w-1/2 justify-center flex-wrap">
 
-
-                    <div class=" p-6 flex flex-col h-[30rem] items-center justify-center">
-                        <h1 class="text-[4rem] text-[#FF7A00] " > HTML</h1>                    
-                    </div>
-                  
-                    <div class="flex justify-center ">
-
-                        <p class="p-[1rem]">
-                            start learning <span class="text-[#FF7A00] font-bold">HTML</span> now
-                        </p>
-                   
-                    </div>
-
-                
-                </div>
-
-
-
-                <div class="bg-black w-[20rem] rounded-[2.5rem]" >
-
-
-                    <div class=" p-6 flex flex-col h-[30rem] items-center justify-center">
-                        <h1 class="text-[4rem] text-[#8AA399]"> C++</h1>                    
-                    </div>
-                  
-                    <div class="flex justify-center ">
-
-                        <p class="p-[1rem]">
-                            start learning <span class="text-[#8AA399] font-bold">C++</span> now
-                        </p>
-                   
-                    </div>
-
-                
-                </div>
-
-
+                <!--formulaire bax yktb smiya d lcollection -->>
+                <form id="collection-form" class="flex gap-2 mb-4 w-full justify-center">
+                    <input type="text" id="collection-name" placeholder="Enter collection name" 
+                           class="p-2 rounded-lg text-black w-[15rem]"/>
+                    <button type="submit" class="bg-black text-white p-2 rounded-lg">
+                        Create Collection
+                    </button>
+                </form>
 
             </div>
-
-
-
         </section>
     </main>
+
+    <script src="collection.js" defer></script>
 </body>
 </html>
