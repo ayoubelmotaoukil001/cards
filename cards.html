@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cards</title>
+<link rel="stylesheet" href="src/output.css">
+<style>
+.perspective { perspective: 1000px; }
+.card-inner { transform-style: preserve-3d; transition: transform 0.5s; }
+.card-inner.flipped { transform: rotateY(180deg); }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+</style>
+</head>
+<body class="bg-white">
+<h2 id="collection-title" class="text-center text-2xl font-bold mt-4"></h2>
+
+ <header> <h1 id="conntt" class="text-center m-[2rem] text-[3rem] font-['bosca']">C A R D S</h1> </header>
+
+<main class="flex justify-center">
+  <div id="cards-container" class="flex flex-row gap-4 w-1/2 justify-center flex-wrap">
+
+    <form id="card-form" class="flex gap-2 mb-4 w-full justify-center">
+      <input type="text" id="question" placeholder="Enter your question" 
+             class="p-2 rounded-lg border border-black text-black w-60"/>
+      <input type="text" id="answer" placeholder="Enter your answer" 
+             class="p-2 rounded-lg border border-black text-black w-60"/>
+      <button type="submit" class="bg-black text-white p-2 rounded-lg">Create Card</button>
+    </form>
+
+  </div>
+</main>
+
+<script>
+const container = document.querySelector('#cards-container');
+const form = document.getElementById('card-form');
+let collections = JSON.parse(localStorage.getItem('collections')) || {};
+let currentCollection = localStorage.getItem('currentCollection');
+renderCards();
+
+
+
+function renderCards() {
+    container.innerHTML = '';
+    const saved = collections[currentCollection] || "";
+    const cards = saved.split(";").filter(c => c); // كل بطاقة مفصولة بـ ;
+
+    cards.forEach(c => {
+        const [q, a] = c.split("|");
+        const newCard = document.createElement('div');
+        newCard.className = 'card w-80 h-96 perspective cursor-pointer';
+        newCard.innerHTML = `
+            <div class="card-inner relative w-full h-full transition-transform">
+                <div class="card-front absolute w-full h-full bg-black text-white flex items-center justify-center rounded-2xl backface-hidden">
+                    <h1 class="text-4xl text-center">${q}</h1>
+                </div>
+                <div class="card-back absolute w-full h-full bg-red-500 text-black flex items-center justify-center rounded-2xl backface-hidden rotate-y-180">
+                    <h1 class="text-4xl text-center">${a}</h1>
+                </div>
+            </div>
+        `;
+        container.appendChild(newCard);
+    });
+
+    container.appendChild(form); // نخلي الفورم في الأخير
+}
+
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const question = document.getElementById('question').value.trim();
+  const answer = document.getElementById('answer').value.trim();
+  if (!question || !answer) return;
+
+  // جمع كل البطاقات القديمة + البطاقة الجديدة
+  const oldCards = collections[currentCollection] || "";
+  const newCards = oldCards + question + "|" + answer + ";";
+
+  // حفظ في localStorage
+  collections[currentCollection] = newCards;
+  localStorage.setItem('collections', JSON.stringify(collections));
+  renderCards();
+
+  
+  document.getElementById('question').value = '';
+  document.getElementById('answer').value = '';
+});
+
+
+
+
+// kifax tflipee lcard-
+document.addEventListener('click', function(e) {
+  const cardInner = e.target.closest('.card-inner');
+  if (cardInner) cardInner.classList.toggle('flipped');
+});
+</script>
+
+</body>
+</html> 
