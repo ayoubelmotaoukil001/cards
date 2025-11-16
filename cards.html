@@ -21,13 +21,15 @@
 <main class="flex justify-center">
   <div id="cards-container" class="flex flex-row gap-4 w-1/2 justify-center flex-wrap">
 
-    <form id="card-form" class="flex gap-2 mb-4 w-full justify-center">
-      <input type="text" id="question" placeholder="Enter your question" 
-             class="p-2 rounded-lg border border-black text-black w-60"/>
-      <input type="text" id="answer" placeholder="Enter your answer" 
-             class="p-2 rounded-lg border border-black text-black w-60"/>
-      <button type="submit" class="bg-black text-white p-2 rounded-lg">Create Card</button>
-    </form>
+    <form id="card-form" class="flex flex-col sm:flex-row gap-2 mb-4 w-full justify-center items-center">
+  <input type="text" id="question" placeholder="Enter your question" 
+         class="p-2 rounded-lg border border-black text-black w-full sm:w-60"/>
+  <input type="text" id="answer" placeholder="Enter your answer" 
+         class="p-2 rounded-lg border border-black text-black w-full sm:w-60"/>
+  <button type="submit" class="bg-black text-white p-2 rounded-lg w-full sm:w-auto">Create Card</button>
+</form>
+
+
 
   </div>
 </main>
