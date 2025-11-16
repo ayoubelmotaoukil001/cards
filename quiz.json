@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the correct file extension for Python files?",
+    "options": [" .python", ".py", ".pt", ".pyt"],
+    "answer": ".py"
+  },
+  {
+    "question": "Which keyword is used to define a function in Python?",
+    "options": ["func", "def", "function", "define"],
+    "answer": "def"
+  },
+  {
+    "question": "How do you write a comment in Python?",
+    "options": ["// comment", "# comment", "<!-- comment -->", "-- comment"],
+    "answer": "# comment"
+  },
+  {
+    "question": "Which data type is used to store True/False values?",
+    "options": ["int", "str", "bool", "float"],
+    "answer": "bool"
+  },
+  {
+    "question": "Which of the following is a valid variable name in Python?",
+    "options": ["2name", "user-name", "user_name", "user name"],
+    "answer": "user_name"
+  },
+  {
+    "question": "Which operator is used for exponentiation (power) in Python?",
+    "options": ["^", "**", "^^", "pow"],
+    "answer": "**"
+  },
+  {
+    "question": "How do you display output in Python?",
+    "options": ["echo()", "console.log()", "print()", "write()"],
+    "answer": "print()"
+  },
+  {
+    "question": "Which one is a Python list?",
+    "options": ["{1, 2, 3}", "(1, 2, 3)", "[1, 2, 3]", "<1, 2, 3>"],
+    "answer": "[1, 2, 3]"
+  },
+  {
+    "question": "What is the value of: len('Python')?",
+    "options": ["5", "6", "7", "None"],
+    "answer": "6"
+  },
+  {
+    "question": "Which keyword is used to create a loop in Python?",
+    "options": ["repeat", "loop", "for", "foreach"],
+    "answer": "for"
+  }
+]
