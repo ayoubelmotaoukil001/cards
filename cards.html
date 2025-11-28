@@ -46,7 +46,7 @@ renderCards();
 function renderCards() {
     container.innerHTML = '';
     const saved = collections[currentCollection] || "";
-    const cards = saved.split(";").filter(c => c); // كل بطاقة مفصولة بـ ;
+    const cards = saved.split(";").filter(c => c); 
 
     cards.forEach(c => {
         const [q, a] = c.split("|");
@@ -65,7 +65,7 @@ function renderCards() {
         container.appendChild(newCard);
     });
 
-    container.appendChild(form); // نخلي الفورم في الأخير
+    container.appendChild(form);
 }
 
 
@@ -76,11 +76,11 @@ form.addEventListener('submit', function(e) {
   const answer = document.getElementById('answer').value.trim();
   if (!question || !answer) return;
 
-  // جمع كل البطاقات القديمة + البطاقة الجديدة
+  
   const oldCards = collections[currentCollection] || "";
   const newCards = oldCards + question + "|" + answer + ";";
 
-  // حفظ في localStorage
+  
   collections[currentCollection] = newCards;
   localStorage.setItem('collections', JSON.stringify(collections));
   renderCards();
